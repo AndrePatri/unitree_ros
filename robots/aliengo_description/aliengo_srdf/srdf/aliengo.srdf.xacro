@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="kyon">
+
+    <!-- ************ MODEL CONFIGURATION ************ -->
+    <xacro:arg name="config" default="$(find kyon_urdf)/urdf/config/kyon.urdf.xacro"/>
+    <xacro:include filename="$(arg config)"/>
+
+    <group name="base">
+        <link name="pelvis"/>
+    </group>
+
+    <group name="front_right_leg">
+        <chain base_link="pelvis" tip_link="FR_foot" />
+    </group>
+    <group name="front_left_leg">
+        <chain base_link="pelvis" tip_link="FL_foot" />
+    </group>
+    <group name="rear_right_leg">
+        <chain base_link="pelvis" tip_link="RR_foot" />
+    </group>
+    <group name="rear_left_leg">
+        <chain base_link="pelvis" tip_link="RL_foot" />
+    </group>
+
+    <group name="chains">        
+        <group name="front_right_leg" />
+        <group name="front_left_leg" />
+        <group name="rear_right_leg" />
+        <group name="rear_left_leg" />
+    </group>
+
+    <!-- Homing posture -->
+    <group_state name="home" group="chains">
+        
+        <joint name="FR_hip_joint" value="0.0"/>
+        <joint name="FR_thigh_joint" value="0.7"/>
+        <joint name="FR_calf_joint" value="-1.4"/>
+        <joint name="FL_hip_joint" value="0.0"/>
+        <joint name="FL_thigh_joint" value="0.7"/>
+        <joint name="FL_calf_joint" value="-1.4"/>
+        <joint name="RR_hip_joint" value="0.0"/>
+        <joint name="RR_thigh_joint" value="0.7"/>
+        <joint name="RR_calf_joint" value="-1.4"/>
+        <joint name="RL_hip_joint" value="0.0"/>
+        <joint name="RL_thigh_joint" value="0.7"/>
+        <joint name="RL_calf_joint" value="-1.4"/>
+
+    </group_state>
+</robot>	

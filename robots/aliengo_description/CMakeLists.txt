@@ -1,19 +1,10 @@
-cmake_minimum_required(VERSION 2.8.3)
-project(aliengo_description)
+cmake_minimum_required(VERSION 3.0)
 
-find_package(catkin REQUIRED COMPONENTS
-    genmsg
-    roscpp
-    std_msgs
-    tf
-)
+set(ROBOT_NAME aliengo)
+project(aliengo VERSION 1.0.0)
 
-catkin_package(
-    CATKIN_DEPENDS
-)
+include(GenerateXrdf.cmake)
 
-include_directories(
-    # include
-    ${Boost_INCLUDE_DIR}
-    ${catkin_INCLUDE_DIRS}
-)
+## add sub-packages
+add_subdirectory(aliengo_urdf)
+add_subdirectory(aliengo_srdf)

@@ -2,44 +2,29 @@
 
 <robot name="aliengo" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:include filename="$(find aliengo_description)/xacro/const.xacro"/>
-    <xacro:include filename="$(find aliengo_description)/xacro/materials.xacro"/>
-    <xacro:include filename="$(find aliengo_description)/xacro/leg.xacro"/>
-    <xacro:include filename="$(find aliengo_description)/xacro/gazebo.xacro"/>
+    <xacro:include filename="$(find aliengo_urdf)/urdf/const.xacro"/>
+    <xacro:include filename="$(find aliengo_urdf)/urdf/materials.xacro"/>
+    <xacro:include filename="$(find aliengo_urdf)/urdf/leg.xacro"/>
+    <!-- <xacro:include filename="$(find aliengo_urdf)/urdf/gazebo.xacro"/> -->
 
     <!-- Rotor related joint and link is only for demonstrate location. -->
     <!-- Actually, the rotor will rotate and the joint is not fixed. Reduction ratio should be considered. -->
 
     <!-- Debug mode will hung up the robot, use "true" or "false" to switch it. -->
-    <xacro:if value="$(arg DEBUG)">
-        <link name="world"/>
-        <joint name="base_static_joint" type="fixed">
-            <origin rpy="0 0 0" xyz="0 0 0"/>
-            <parent link="world"/>
-            <child link="base"/>
-        </joint>
-    </xacro:if> 
 
-    <link name="base">
-        <visual>
-            <origin rpy="0 0 0" xyz="0 0 0"/>
-            <geometry>
-                <box size="0.001 0.001 0.001"/>
-            </geometry>
-        </visual>
-    </link>
-
-    <joint name="floating_base" type="fixed">
-        <origin rpy="0 0 0" xyz="0 0 0"/>
-        <parent link="base"/>
+    <link name="base_link"/>
+    
+    <joint name="base_joint" type="fixed">
+        <parent link="base_link"/>
         <child link="trunk"/>
+        <origin xyz="0 0 0" rpy="0 0 0" />
     </joint>
-
+    
     <link name="trunk">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://aliengo_description/meshes/trunk.dae" scale="1 1 1"/>
+                <mesh filename="package://aliengo_urdf/meshes/trunk.dae" scale="1 1 1"/>
             </geometry>
             <material name="orange"/>
         </visual>
@@ -52,7 +37,7 @@
         <!-- <collision>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://aliengo_description/meshes/trunk.dae" scale="1 1 1"/>
+                <mesh filename="package://aliengo_urdf/meshes/trunk.dae" scale="1 1 1"/>
             </geometry>
         </collision> -->
         <inertial>
