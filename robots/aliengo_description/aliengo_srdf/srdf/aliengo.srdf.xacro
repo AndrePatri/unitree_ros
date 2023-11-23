@@ -6,8 +6,6 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="kyon">
 
     <!-- ************ MODEL CONFIGURATION ************ -->
-    <xacro:arg name="config" default="$(find kyon_urdf)/urdf/config/kyon.urdf.xacro"/>
-    <xacro:include filename="$(arg config)"/>
 
     <group name="base">
         <link name="pelvis"/>
