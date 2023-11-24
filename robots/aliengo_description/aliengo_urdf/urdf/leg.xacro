@@ -194,7 +194,7 @@
             <visual>
                 <origin rpy="0 0 0" xyz="0 0 0"/>
                 <geometry>
-                    <mesh filename="package://aliengo_urdf/meshes/calf.dae" scale="1 1 1"/>
+                    <mesh filename="${MESH_PATH}/calf.dae" scale="1 1 1"/>
                 </geometry>
                 <material name="orange"/>
             </visual>
