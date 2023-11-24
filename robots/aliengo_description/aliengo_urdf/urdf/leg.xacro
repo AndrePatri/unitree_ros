@@ -63,7 +63,7 @@
                     <origin rpy="${PI} ${PI} 0" xyz="0 0 0"/>
                 </xacro:if>
                 <geometry>
-                    <mesh filename="${ALIENGO_ROOT}/meshes/hip.dae" scale="1 1 1"/>
+                    <mesh filename="${MESH_PATH}/hip.dae" scale="1 1 1"/>
                 </geometry>
                 <material name="orange"/>
             </visual>
@@ -127,10 +127,10 @@
                 <origin rpy="0 0 0" xyz="0 0 0"/>
                 <geometry>
                     <xacro:if value="${mirror_dae == True}">
-                        <mesh filename="${ALIENGO_ROOT}/meshes/thigh.dae" scale="1 1 1"/>
+                        <mesh filename="${MESH_PATH}/thigh.dae" scale="1 1 1"/>
                     </xacro:if>
                     <xacro:if value="${mirror_dae == False}">
-                        <mesh filename="${ALIENGO_ROOT}/meshes/thigh_mirror.dae" scale="1 1 1"/>
+                        <mesh filename="${MESH_PATH}/thigh_mirror.dae" scale="1 1 1"/>
                     </xacro:if>
                 </geometry>
                 <material name="orange"/>

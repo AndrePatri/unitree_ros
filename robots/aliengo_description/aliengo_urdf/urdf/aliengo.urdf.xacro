@@ -6,6 +6,20 @@
     will be propagated to all its downstream childs -->
     <xacro:arg name="aliengo_root" default="$(find aliengo_urdf)" />  
     <xacro:property name="ALIENGO_ROOT" value="$(arg aliengo_root)" />
+    
+    <!-- setting use_abs_mesh_paths should be kept to false
+    for use with tools like RViz, which does not accept plain
+    abolute paths for mesh paths-->
+    <xacro:arg name="use_abs_mesh_paths" default="false" />  
+
+    <xacro:property name="USE_ABS_MESH_PATHS" value="$(arg use_abs_mesh_paths)" />
+
+    <xacro:if value="${USE_ABS_MESH_PATHS}">
+    <xacro:property name="MESH_PATH" value="${ALIENGO_ROOT}/meshes" />
+    </xacro:if>
+    <xacro:unless value="${USE_ABS_MESH_PATHS}">
+    <xacro:property name="MESH_PATH" value="package://aliengo_urdf/meshes" />
+    </xacro:unless>
 
     <xacro:include filename="${ALIENGO_ROOT}/urdf/const.xacro"/>
     <xacro:include filename="${ALIENGO_ROOT}/urdf/materials.xacro"/>
@@ -29,7 +43,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="${ALIENGO_ROOT}/meshes/trunk.dae" scale="1 1 1"/>
+                <mesh filename="${MESH_PATH}/trunk.dae" scale="1 1 1"/>
             </geometry>
             <material name="orange"/>
         </visual>
@@ -42,7 +56,7 @@
         <!-- <collision>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="${ALIENGO_ROOT}/meshes/trunk.dae" scale="1 1 1"/>
+                <mesh filename="${MESH_PATH}/trunk.dae" scale="1 1 1"/>
             </geometry>
         </collision> -->
         <inertial>
