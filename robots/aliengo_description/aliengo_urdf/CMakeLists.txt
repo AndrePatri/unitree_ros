@@ -1,19 +1,16 @@
 project(aliengo_urdf)
 
-find_package(catkin REQUIRED COMPONENTS)
-
-catkin_package()
+find_package(ament_cmake REQUIRED)
 
 install(DIRECTORY meshes
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+  DESTINATION share/${PROJECT_NAME}
 )
 
 install(DIRECTORY urdf
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-)
+  DESTINATION share/${PROJECT_NAME})
 
-generate_urdf(
-  XACRO ${ROBOT_NAME}.urdf.xacro
-  CONFIG config/${ROBOT_NAME}.urdf.xacro
-  ADD_TO_ALL TRUE
-)
+# generate_urdf(
+#   XACRO ${ROBOT_NAME}.urdf.xacro
+#   CONFIG config/${ROBOT_NAME}.urdf.xacro
+#   ADD_TO_ALL TRUE
+# )
