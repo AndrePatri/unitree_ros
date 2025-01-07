@@ -10,7 +10,7 @@
     name="spawn_model"
     pkg="gazebo_ros"
     type="spawn_model"
-    args="-file $(find b2w_description)/urdf/b2w_description.urdf -urdf -model b2w_description"
+    args="-file ${ROOT}/urdf/b2w_description.urdf -urdf -model b2w_description"
     output="screen" />
   <node
     name="fake_joint_calibration"

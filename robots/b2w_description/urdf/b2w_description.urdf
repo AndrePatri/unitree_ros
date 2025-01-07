@@ -26,7 +26,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://b2w_description/meshes/base_link.dae" />
+          filename="${MESH_PATH}/base_link.dae" />
       </geometry>
       <material
         name="">
@@ -271,7 +271,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://b2w_description/meshes/FL_hip.dae" />
+          filename="${MESH_PATH}/FL_hip.dae" />
       </geometry>
       <material
         name="">
@@ -328,7 +328,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://b2w_description/meshes/FL_thigh.dae" />
+          filename="${MESH_PATH}/FL_thigh.dae" />
       </geometry>
       <material
         name="">
@@ -385,7 +385,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://b2w_description/meshes/FL_calf.dae" />
+          filename="${MESH_PATH}/FL_calf.dae" />
       </geometry>
       <material
         name="">
@@ -399,7 +399,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://b2w_description/meshes/FL_calf.dae" />
+          filename="${MESH_PATH}/FL_calf.dae" />
       </geometry>
     </collision>
   </link>
@@ -443,7 +443,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://b2w_description/meshes/FL_foot.dae" />
+          filename="${MESH_PATH}/FL_foot.dae" />
       </geometry>
       <material
         name="">
@@ -457,7 +457,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://b2w_description/meshes/FL_foot.dae" />
+          filename="${MESH_PATH}/FL_foot.dae" />
       </geometry>
     </collision>
   </link>
@@ -499,7 +499,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://b2w_description/meshes/FR_hip.dae" />
+          filename="${MESH_PATH}/FR_hip.dae" />
       </geometry>
       <material
         name="">
@@ -556,7 +556,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://b2w_description/meshes/FR_thigh.dae" />
+          filename="${MESH_PATH}/FR_thigh.dae" />
       </geometry>
       <material
         name="">
@@ -611,7 +611,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://b2w_description/meshes/FR_calf.dae" />
+          filename="${MESH_PATH}/FR_calf.dae" />
       </geometry>
       <material
         name="">
@@ -625,7 +625,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://b2w_description/meshes/FR_calf.dae" />
+          filename="${MESH_PATH}/FR_calf.dae" />
       </geometry>
     </collision>
   </link>
@@ -669,7 +669,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://b2w_description/meshes/FR_foot.dae" />
+          filename="${MESH_PATH}/FR_foot.dae" />
       </geometry>
       <material
         name="">
@@ -683,7 +683,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://b2w_description/meshes/FR_foot.dae" />
+          filename="${MESH_PATH}/FR_foot.dae" />
       </geometry>
     </collision>
   </link>
@@ -725,7 +725,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://b2w_description/meshes/RL_hip.dae" />
+          filename="${MESH_PATH}/RL_hip.dae" />
       </geometry>
       <material
         name="">
@@ -782,7 +782,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://b2w_description/meshes/RL_thigh.dae" />
+          filename="${MESH_PATH}/RL_thigh.dae" />
       </geometry>
       <material
         name="">
@@ -837,7 +837,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://b2w_description/meshes/RL_calf.dae" />
+          filename="${MESH_PATH}/RL_calf.dae" />
       </geometry>
       <material
         name="">
@@ -851,7 +851,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://b2w_description/meshes/RL_calf.dae" />
+          filename="${MESH_PATH}/RL_calf.dae" />
       </geometry>
     </collision>
   </link>
@@ -895,7 +895,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://b2w_description/meshes/RL_foot.dae" />
+          filename="${MESH_PATH}/RL_foot.dae" />
       </geometry>
       <material
         name="">
@@ -909,7 +909,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://b2w_description/meshes/RL_foot.dae" />
+          filename="${MESH_PATH}/RL_foot.dae" />
       </geometry>
     </collision>
   </link>
@@ -951,7 +951,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://b2w_description/meshes/RR_hip.dae" />
+          filename="${MESH_PATH}/RR_hip.dae" />
       </geometry>
       <material
         name="">
@@ -1008,7 +1008,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://b2w_description/meshes/RR_thigh.dae" />
+          filename="${MESH_PATH}/RR_thigh.dae" />
       </geometry>
       <material
         name="">
@@ -1063,7 +1063,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://b2w_description/meshes/RR_calf.dae" />
+          filename="${MESH_PATH}/RR_calf.dae" />
       </geometry>
       <material
         name="">
@@ -1077,7 +1077,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://b2w_description/meshes/RR_calf.dae" />
+          filename="${MESH_PATH}/RR_calf.dae" />
       </geometry>
     </collision>
   </link>
@@ -1121,7 +1121,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://b2w_description/meshes/RR_foot.dae" />
+          filename="${MESH_PATH}/RR_foot.dae" />
       </geometry>
       <material
         name="">
@@ -1135,7 +1135,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://b2w_description/meshes/RR_foot.dae" />
+          filename="${MESH_PATH}/RR_foot.dae" />
       </geometry>
     </collision>
   </link>

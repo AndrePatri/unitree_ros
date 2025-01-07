@@ -3,7 +3,7 @@
     name="model" />
   <param
     name="robot_description"
-    textfile="$(find b2w_description)/urdf/b2w_description.urdf" />
+    textfile="${ROOT}/urdf/b2w_description.urdf" />
   <node
     name="joint_state_publisher_gui"
     pkg="joint_state_publisher_gui"
@@ -16,5 +16,5 @@
     name="rviz"
     pkg="rviz"
     type="rviz"
-    args="-d $(find b2w_description)/config/b2w.rviz" />
+    args="-d ${ROOT}/config/b2w.rviz" />
 </launch>

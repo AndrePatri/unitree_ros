@@ -1,17 +1,40 @@
 <?xml version="1.0"?>
 
-<robot name="b2w_description" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="unitree_b2w" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:include filename="$(find b2w_description)/xacro/const.xacro"/>
-    <xacro:include filename="$(find b2w_description)/xacro/materials.xacro"/>
-    <xacro:include filename="$(find b2w_description)/xacro/leg.xacro"/>
-    <xacro:include filename="$(find b2w_description)/xacro/gazebo.xacro"/>
+    <xacro:arg name="debug" default="false" />  
+    <xacro:property name="DEBUG" value="$(arg debug)" />
+
+    <xacro:arg name="root" default="${ROOT}" />  
+    <xacro:arg name="use_abs_mesh_paths" default="false" />  
+    <xacro:arg name="use_local_filesys_for_meshes" default="false" /> 
+
+    <xacro:property name="ROOT" value="$(arg root)" />
+    <xacro:property name="USE_ABS_MESH_PATHS" value="$(arg use_abs_mesh_paths)" />
+    <xacro:property name="USE_LOCAL_FILESYS_FOR_MESHES" value="$(arg use_local_filesys_for_meshes)" />
+
+    <xacro:if value="${USE_ABS_MESH_PATHS}">
+        <xacro:if value="${USE_LOCAL_FILESYS_FOR_MESHES}">
+        <xacro:property name="MESH_PATH" value="file://${ROOT}/meshes" />
+        </xacro:if>
+        <xacro:unless value="${USE_LOCAL_FILESYS_FOR_MESHES}">
+        <xacro:property name="MESH_PATH" value="${ROOT}/meshes" />
+        </xacro:unless>
+    </xacro:if>
+    <xacro:unless value="${USE_ABS_MESH_PATHS}">
+        <xacro:property name="MESH_PATH" value="package://b2w_description/meshes" />
+    </xacro:unless>
+
+    <xacro:include filename="${ROOT}/xacro/const.xacro"/>
+    <xacro:include filename="${ROOT}/xacro/materials.xacro"/>
+    <xacro:include filename="${ROOT}/xacro/leg.xacro"/>
+    <xacro:include filename="${ROOT}/xacro/gazebo.xacro"/>
 
     <!-- Rotor related joint and link is only for demonstrate location. -->
     <!-- Actually, the rotor will rotate and the joint is not fixed. Reduction ratio should be considered. -->
 
     <!-- Debug mode will hung up the robot, use "true" or "false" to switch it. -->
-    <xacro:if value="$(arg DEBUG)">
+    <xacro:if value="${DEBUG}">
         <link name="world"/>
         <joint name="base_static_joint" type="fixed">
             <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -39,7 +62,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://b2w_description/meshes/trunk.dae" scale="1 1 1"/>
+                <mesh filename="${MESH_PATH}/trunk.dae" scale="1 1 1"/>
             </geometry>
             <!-- <material name="orange"/> -->
         </visual>
