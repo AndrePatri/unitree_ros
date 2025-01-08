@@ -4,12 +4,16 @@
 
     <xacro:arg name="debug" default="false" />  
     <xacro:property name="DEBUG" value="$(arg debug)" />
+    <xacro:arg name="floating_joint" default="false"/>
+    <xacro:arg name="wheels" default="true"/>
 
     <xacro:arg name="root" default="${ROOT}" />  
     <xacro:arg name="use_abs_mesh_paths" default="false" />  
     <xacro:arg name="use_local_filesys_for_meshes" default="false" /> 
 
     <xacro:property name="ROOT" value="$(arg root)" />
+    <xacro:property name="ADD_FLOATING_BASE" value="$(arg floating_joint)" />
+    <xacro:property name="ADD_WHEELS" value="$(arg wheels)" />
     <xacro:property name="USE_ABS_MESH_PATHS" value="$(arg use_abs_mesh_paths)" />
     <xacro:property name="USE_LOCAL_FILESYS_FOR_MESHES" value="$(arg use_local_filesys_for_meshes)" />
 
@@ -42,6 +46,16 @@
             <child link="base"/>
         </joint>
     </xacro:if> 
+    <xacro:unless value="${DEBUG}">
+        <!-- add floating joint only if not DEBUG -->
+        <xacro:if value="${ADD_FLOATING_BASE}">
+            <link name="world"/>
+            <joint name="reference" type="floating">
+                <parent link="world"/>
+                <child link="base"/>
+            </joint>
+        </xacro:if>
+    </xacro:unless>
 
     <link name="base">
         <visual>
@@ -52,7 +66,7 @@
         </visual>
     </link>
 
-    <joint name="floating_base" type="fixed">
+    <joint name="base2trunk" type="fixed">
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <parent link="base"/>
         <child link="trunk"/>

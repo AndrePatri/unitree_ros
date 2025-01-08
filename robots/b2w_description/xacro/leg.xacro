@@ -255,30 +255,66 @@
             </inertial>
         </link>
 
-        <joint name="${name}_foot_fixed" type="fixed">
-            <origin rpy="1.57 0 0" xyz="0 0 ${-(calf_length)}"/>
-            <parent link="${name}_calf"/>
-            <child link="${name}_foot"/>
-        </joint>
+        <xacro:if value="${ADD_WHEELS}">
 
-        <link name="${name}_foot">
-            <collision>
-            <origin
-                xyz="0 0 0"
-                rpy="0 0 0" />
-            <geometry>
-                <sphere radius="0.032" />
-            </geometry>
-            </collision>
-            <inertial>
-                <mass value="${foot_mass}"/>
-                <inertia
-                    ixx="${(2*foot_mass)/5.0*(foot_radius*foot_radius)}" ixy="0.0" ixz="0.0"
-                    iyy="${(2*foot_mass)/5.0*(foot_radius*foot_radius)}" iyz="0.0"
-                    izz="${(2*foot_mass)/5.0*(foot_radius*foot_radius)}"/>             
-            </inertial>
-        </link>
+            <joint name="${name}_foot_joint" type="continuous">
+                <origin xyz="0 -0.001 -0.35" rpy="0 0 0" />
+                <parent link="${name}_calf" />
+                <child link="${name}_foot" />
+                <axis xyz="0 1 0" />
+                <limit effort="20" velocity="50" />
+            </joint>
 
+            <link name="${name}_foot">
+                <inertial>
+                    <origin xyz="-0.000991 -0.051053 -0.00113" rpy="0 0 0" />
+                    <mass value="1.083" />
+                    <inertia ixx="0.004121" ixy="-6E-06" ixz="-4.8E-05" iyy="0.007776" iyz="-7E-06" izz="0.004108" />
+                </inertial>
+                <visual>
+                    <origin xyz="0 0 0" rpy="0 0 0" />
+                    <geometry>
+                        <mesh filename="${MESH_PATH}/${name}_foot.dae" />
+                    </geometry>
+                    <material name="">
+                        <color rgba="1 1 1 1" />
+                    </material>
+                </visual>
+                <collision>
+                    <origin xyz="0 0 0" rpy="0 0 0" />
+                    <geometry>
+                        <mesh filename="${MESH_PATH}/${name}_foot.dae" />
+                    </geometry>
+                </collision>
+            </link>
+
+        </xacro:if> 
+        <xacro:unless value="${ADD_WHEELS}">
+
+            <joint name="${name}_foot_fixed" type="fixed">
+                <origin rpy="1.57 0 0" xyz="0 0 ${-(calf_length)}"/>
+                <parent link="${name}_calf"/>
+                <child link="${name}_foot"/>
+            </joint>
+
+            <link name="${name}_foot">
+                <collision>
+                    <origin xyz="0 0 0" rpy="0 0 0" />
+                    <geometry>
+                        <sphere radius="0.032" />
+                    </geometry>
+                </collision>
+                <inertial>
+                    <mass value="${foot_mass}"/>
+                    <inertia
+                        ixx="${(2*foot_mass)/5.0*(foot_radius*foot_radius)}" ixy="0.0" ixz="0.0"
+                        iyy="${(2*foot_mass)/5.0*(foot_radius*foot_radius)}" iyz="0.0"
+                        izz="${(2*foot_mass)/5.0*(foot_radius*foot_radius)}"/>             
+                </inertial>
+            </link>
+            
+        </xacro:unless>
+        
         <xacro:leg_transmission name="${name}"/>
     </xacro:macro>
 </robot>
