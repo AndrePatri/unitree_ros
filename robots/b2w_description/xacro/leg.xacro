@@ -257,22 +257,51 @@
 
         <xacro:if value="${ADD_WHEELS}">
 
+            <joint name="${name}_ball_joint" type="fixed">
+                <parent link="${name}_calf"/>
+                <child link="${name}_foot_ball"/>
+                <origin rpy="${-PI/2.0} 0.0 0.0" xyz="0.0 -0.001 -0.35"/>
+            </joint>
+
+            <link name="${name}_foot_ball">
+                <inertial>
+                    <origin xyz="0 0 0" rpy="0 0 0" />
+                    <mass value="0.1" />
+                    <inertia ixx="1E-04" ixy="0.0" ixz="0.0" iyy="1E-04" iyz="0.0" izz="1E-04" />
+                </inertial>
+                <visual>
+                    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+                    <geometry>
+                        <sphere radius="0.05"/>
+                    </geometry>
+                    <material name="">
+                        <color rgba="1 1 1 1" />
+                    </material>
+                </visual>
+                <collision>
+                    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+                    <geometry>
+                        <sphere radius="0.05"/>
+                    </geometry>
+                </collision>
+            </link>
+
             <joint name="${name}_foot_joint" type="continuous">
-                <origin xyz="0 -0.001 -0.35" rpy="0 0 0" />
-                <parent link="${name}_calf" />
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <parent link="${name}_foot_ball" />
                 <child link="${name}_foot" />
-                <axis xyz="0 1 0" />
+                <axis xyz="0 0 1" />
                 <limit effort="20" velocity="50" />
             </joint>
 
             <link name="${name}_foot">
                 <inertial>
-                    <origin xyz="-0.000991 -0.051053 -0.00113" rpy="0 0 0" />
+                    <origin xyz="-0.000991 -0.051053 -0.00113" rpy="${PI/2.0} 0 0" />
                     <mass value="1.083" />
                     <inertia ixx="0.004121" ixy="-6E-06" ixz="-4.8E-05" iyy="0.007776" iyz="-7E-06" izz="0.004108" />
                 </inertial>
                 <visual>
-                    <origin xyz="0 0 0" rpy="0 0 0" />
+                    <origin xyz="0 0 0" rpy="${PI/2.0} 0 0" />
                     <geometry>
                         <mesh filename="${MESH_PATH}/${name}_foot.dae" />
                     </geometry>
@@ -283,8 +312,12 @@
                 <collision>
                     <origin xyz="0 0 0" rpy="0 0 0" />
                     <geometry>
-                        <mesh filename="${MESH_PATH}/${name}_foot.dae" />
+                        <cylinder radius="0.1125" length="0.03"/>
                     </geometry>
+                    <!-- <origin xyz="0 0 0" rpy="${PI/2.0} 0 0" /> -->
+                    <!-- <geometry>
+                        <mesh filename="${MESH_PATH}/${name}_foot.dae" />
+                    </geometry> -->
                 </collision>
             </link>
 
