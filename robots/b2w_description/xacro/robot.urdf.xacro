@@ -166,12 +166,12 @@
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <mass value="6.55E-08" />
             <inertia
-            ixx="1.64E-15"
-            ixy="0"
-            ixz="-1.09E-47"
-            iyy="1.64E-15"
-            iyz="-1.32E-47"
-            izz="1.64E-15" />
+                ixx="1e-3"
+                ixy="1E-45"
+                ixz="1E-45"
+                iyy="1e-3"
+                iyz="1E-45"
+                izz="1e-3" />
         </inertial>
         <collision>
             <origin rpy="0 0 0" xyz="0 0 -0.02"/>
