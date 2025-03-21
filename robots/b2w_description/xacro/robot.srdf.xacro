@@ -11,7 +11,7 @@
     <xacro:property name="ROOT" value="$(arg root)" />
 
     <group name="base">
-        <link name="base"/>base_link
+        <link name="base"/>
     </group>
 
     <group name="imu_sensors">
@@ -29,6 +29,13 @@
     </group>
     <group name="rear_left_leg">
         <chain base="base" tip_link="RL_foot" />
+    </group>
+
+    <group name="chains">
+        <group name="front_left_leg"/>
+        <group name="front_right_leg"/>
+        <group name="rear_right_leg"/>
+        <group name="rear_left_leg"/>
     </group>
 
     <!-- Homing posture -->
