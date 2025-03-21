@@ -164,7 +164,7 @@
     <link name="lidar_link">
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0"/>
-            <mass value="6.55E-08" />
+            <mass value="1.0E-03" />
             <inertia
                 ixx="1e-3"
                 ixy="1E-45"
