@@ -63,7 +63,7 @@
                     <origin rpy="${PI} ${PI} 0" xyz="0 0 0"/>
                 </xacro:if>
                 <geometry>
-                    <mesh filename="${MESH_PATH}/hip.dae" scale="1 1 1"/>
+                    <mesh filename="${MESH_PATH}/hip.stl" scale="1 1 1"/>
                 </geometry>
                 <material name="orange"/>
             </visual>
@@ -121,10 +121,10 @@
                 <origin rpy="0 0 0" xyz="0 0 0"/>
                 <geometry>
                     <xacro:if value="${mirror_dae == True}">
-                        <mesh filename="${MESH_PATH}/thigh.dae" scale="1 1 1"/>
+                        <mesh filename="${MESH_PATH}/thigh.stl" scale="1 1 1"/>
                     </xacro:if>
                     <xacro:if value="${mirror_dae == False}">
-                        <mesh filename="${MESH_PATH}/thigh_mirror.dae" scale="1 1 1"/>
+                        <mesh filename="${MESH_PATH}/thigh_mirror.stl" scale="1 1 1"/>
                     </xacro:if>
                 </geometry>
                 <material name="orange"/>
@@ -183,10 +183,10 @@
                 <origin rpy="0 0 0" xyz="0 0 0"/>
                 <geometry>
                     <xacro:if value="${mirror_dae == True}">
-                        <mesh filename="${MESH_PATH}/thigh.dae" scale="1 1 1"/>
+                        <mesh filename="${MESH_PATH}/thigh.stl" scale="1 1 1"/>
                     </xacro:if>
                     <xacro:if value="${mirror_dae == False}">
-                        <mesh filename="${MESH_PATH}/thigh_mirror.dae" scale="1 1 1"/>
+                        <mesh filename="${MESH_PATH}/thigh_mirror.stl" scale="1 1 1"/>
                     </xacro:if>
                 </geometry>
                 <material name="orange"/>
@@ -195,10 +195,10 @@
                 <origin rpy="0 0 0" xyz="0 0 0"/>
                 <geometry>
                     <xacro:if value="${mirror_dae == True}">
-                        <mesh filename="${MESH_PATH}/calf.dae" scale="1 1 1"/>
+                        <mesh filename="${MESH_PATH}/calf.stl" scale="1 1 1"/>
                     </xacro:if>
                     <xacro:if value="${mirror_dae == False}">
-                        <mesh filename="${MESH_PATH}/calf_mirror.dae" scale="1 1 1"/>
+                        <mesh filename="${MESH_PATH}/calf_mirror.stl" scale="1 1 1"/>
                     </xacro:if>
                 </geometry>
                 <material name="orange"/>
@@ -303,7 +303,7 @@
                 <visual>
                     <origin xyz="0 0 0" rpy="${PI/2.0} 0 0" />
                     <geometry>
-                        <mesh filename="${MESH_PATH}/${name}_foot.dae" />
+                        <mesh filename="${MESH_PATH}/${name}_foot.stl" />
                     </geometry>
                     <material name="">
                         <color rgba="1 1 1 1" />
@@ -316,7 +316,7 @@
                     </geometry>
                     <!-- <origin xyz="0 0 0" rpy="${PI/2.0} 0 0" /> -->
                     <!-- <geometry>
-                        <mesh filename="${MESH_PATH}/${name}_foot.dae" />
+                        <mesh filename="${MESH_PATH}/${name}_foot.stl" />
                     </geometry> -->
                 </collision>
             </link>

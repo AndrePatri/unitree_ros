@@ -52,12 +52,12 @@
       <mass
         value="4.19E-15" />
       <inertia
-        ixx="1.68E-27"
-        ixy="-3.2E-45"
-        ixz="7.68E-44"
-        iyy="1.68E-27"
-        iyz="-9.26E-47"
-        izz="1.68E-27" />
+        ixx="1e-9"
+        ixy="1E-45"
+        ixz="1E-44"
+        iyy="1e-9"
+        iyz="1E-47"
+        izz="1e-9" />
     </inertial>
     <collision>
       <origin
