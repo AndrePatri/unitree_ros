@@ -4,7 +4,7 @@
 
     <xacro:arg name="debug" default="false" />  
     <xacro:property name="DEBUG" value="$(arg debug)" />
-    <xacro:arg name="floating_joint" default="false"/>
+    <xacro:arg name="floating_joint" default="true"/>
     <xacro:arg name="wheels" default="true"/>
 
     <xacro:arg name="root" default="${ROOT}" />  
